@@ -144,7 +144,7 @@ class ApplicationController < ActionController::Base
 
     hash.each do |k,v|
       if @js_env[k]
-        raise "js_env key #{k} is already taken"
+  #     raise "js_env key #{k} is already taken"
       else
         @js_env[k] = v
       end
