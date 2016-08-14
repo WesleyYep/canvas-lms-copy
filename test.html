@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="scripts-not-loaded" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page Not Found</title>
+  <!--[if lte IE 9]> <meta http-equiv=refresh content="0; URL=/ie-9-is-not-supported.html" /> <![endif]-->
+  <link href="/images/favicon-green.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link href="/images/apple-touch-icon.png" rel="apple-touch-icon" />
+  
+  <link href="/dist/brandable_css/legacy_normal_contrast/bundles/common-cb3aa17515.css" media="all" rel="stylesheet" />
+  
+  
+  
+  
+  
+  <script>
+    // listen for any clicks on links that have href="#" and queue them to be fired on dom ready.
+      function _earlyClick(e){
+        var cur = e.target || e.srcElement;
+        while ( cur && cur.ownerDocument ) {
+          if ( cur.getAttribute('href') == '#' ) {
+            e.preventDefault();
+            _earlyClick.clicks = _earlyClick.clicks || [];
+            _earlyClick.clicks.push(cur);
+            break;
+          }
+          cur = cur.parentNode;
+        }
+      }
+      document.addEventListener('click', _earlyClick);
+  </script>
+</head>
+
+<body class="">
+<noscript>
+  <div role="alert" class="ic-flash-static ic-flash-error">
+    <div class="ic-flash__icon" aria-hidden="true">
+      <i class="icon-warning"></i>
+    </div>
+    <h1>You need to have JavaScript enabled in order to access this site.</h1>
+  </div>
+</noscript>
+
+
+
+
+<ul id="flash_message_holder"></ul>
+<div id="flash_screenreader_holder"></div>
+
+<div id="application" >
+
+    <div id="header" class="no-print no-user">
+      <div id="header-inner">
+        <a href="#content" id="skip_navigation_link">Skip To Content</a>
+        <a id="header-logo" href="http://52.27.41.61:3000/">My Dashboard</a>
+        <b id="header-logo-secondary"></b>
+        <div id="topbar" role="navigation" aria-label="User Menu">
+    <ul id="identity">
+      <li><a href="/register">Sign Up as a Teacher</a></li>
+      <li><a href="/login">Log In</a></li>
+</ul>
+
+</div>
+
+        
+        
+      </div>
+    </div>
+
+  <div id="instructure_ajax_error_box">
+    <div style="text-align: right; background-color: #fff;"><a href="#" class="close_instructure_ajax_error_box_link">Close</a></div>
+    <iframe id="instructure_ajax_error_result" src="about:blank" style="border: 0;" title="Error"></iframe>
+  </div>
+
+  
+
+  <div id="wrapper-container" >
+    <div id="wrapper" >
+    
+        <div id="main" >
+          <div id="not_right_side" >
+            <div id="content-wrapper" >
+                
+                
+              <div id="content" role="main" class="container-fluid">
+                
+<div style="width: 410px; margin-left: auto; margin-right: auto; margin-top: 50px;">
+  <h2>Page Not Found</h2>
+    <p>Oops, we couldn&#39;t find that page.</p>
+  <a href="#" style="font-size: 1.2em;" class="submit_error_link discussion-topic">Click here to tell us what you were looking for.</a>
+  <form id="submit_error_form" style="display: none;" action="/error_reports" method="POST">
+  <input id="error_category" name="error[category]" type="hidden" value="404" />
+  <input id="error_id" name="error[id]" type="hidden" />
+  <input id="error_url" name="error[url]" type="hidden" value="http://52.27.41.61:3000/login/oauth2/token" />
+  <div style="width: 100%; margin: 0px auto;">
+    <input id="error_username" name="error[username]" type="text" value="" />
+    <textarea id="error_comments" name="error[comments]" style="width: 100%; height: 100px; border: 1px solid #888;">
+</textarea>
+      Email (required):
+    <input id="error_email" name="error[email]" style="border: 1px solid #888;" type="text" value="" />
+  </div>
+  <div class="button-container">
+    <button type="submit" class="btn">Send Comments</button>
+  </div>
+</form>
+
+
+</div>
+
+              </div>
+            </div>
+            <div id="right-side-wrapper" >
+              <aside id="right-side" role="complementary">
+                
+              </aside>
+            </div>
+          </div>
+        </div>
+      
+        <footer role="contentinfo" id="footer" >
+  <a href="http://www.instructure.com" class="footer-logo ">
+    <span class="screenreader-only">
+      By Instructure
+    </span>
+  </a>
+  <span
+    id="footer-links"
+    >
+      <a href="http://instructure.com">Open Source LMS</a>
+    <a target="_blank" href="http://eepurl.com/1LSkT">User Research</a>
+      
+    
+  </span>
+</footer>
+
+    </div>
+  </div>
+
+
+
+    <div style="display:none;"><!-- Everything inside of this should always stay hidden -->
+    </div>
+    <div id="cant_record_dialog" style="display: none;">
+  <div>
+    In order to create video or audio recordings your computer needs to be 
+    webcam-enabled.  If you don&#39;t have a webcam on your computer, you can still
+    record audio-only messages by first installing the Google Video Chat
+    plugin.
+  </div>
+  <div style="text-align: center; font-size: 1.5em; margin: 10px;">
+    <a href="http://www.google.com/chat/video" target="_blank" class="btn">Install the Video Plugin</a>
+  </div>
+  <div class="links" style="text-align: right; font-size: 0.8em; display: none;">
+    <a href="#" class="cant_record_link">Don&#39;t have a webcam?</a>
+  </div>
+</div>
+  <div id='aria_alerts' class='hide-text affix' role="alert" aria-live="assertive"></div>
+  <script>
+  INST = {"environment":"development","disableScribdPreviews":true,"disableCrocodocPreviews":true,"logPageViews":true,"maxVisibleEditorButtons":3,"editorButtons":[]};
+  ENV = {"ASSET_HOST":null,"active_brand_config":null,"active_brand_config_json_url":"\/dist\/brandable_css\/default\/variables-8329a10f7c2bf656ec199a1a25bab38b.json","url_to_what_gets_loaded_inside_the_tinymce_editor_css":"\/dist\/brandable_css\/legacy_normal_contrast\/bundles\/what_gets_loaded_inside_the_tinymce_editor-f68634bd09.css","current_user_id":null,"current_user":{},"current_user_roles":null,"current_user_disabled_inbox":null,"files_domain":"localhost:3000","DOMAIN_ROOT_ACCOUNT_ID":10000000000001,"use_new_styles":false,"k12":false,"help_link_name":"Help","help_link_icon":"help","use_high_contrast":null,"SETTINGS":{"open_registration":false,"eportfolios_enabled":true,"show_feedback_link":false},"context_asset_string":null,"TIMEZONE":"America\/Denver","LOCALE":"en","BIGEASY_LOCALE":"en_US","FULLCALENDAR_LOCALE":"en","MOMENT_LOCALE":"en","notices":[]};
+
+    // TODO: move this out when we have a single require call
+    require = {
+      translate: false,
+      baseUrl: '/javascripts',
+      paths: {
+    "common":"compiled\/bundles\/common",
+    "jqueryui":"vendor\/jqueryui",
+    "compiled\/tinymce":"compiled\/tinymce.js?v2",
+    "canvas_quizzes":"client_apps\/canvas_quizzes",
+    "app\/config\/environments\/production":"empty:"},
+      packages : [{"name":"ic-ajax","location":"bower\/ic-ajax\/dist\/amd"},{"name":"ic-styled","location":"bower\/ic-styled"},{"name":"ic-menu","location":"bower\/ic-menu"},{"name":"ic-tabs","location":"bower\/ic-tabs\/dist\/amd"},{"name":"ic-droppable","location":"bower\/ic-droppable\/dist\/amd"},{"name":"ic-sortable","location":"bower\/ic-sortable\/dist\/amd"},{"name":"ic-modal","location":"bower\/ic-modal\/dist\/amd"},{"name":"ic-lazy-list","location":"bower\/ic-lazy-list"},{"name":"ember-qunit","location":"bower\/ember-qunit\/dist\/amd"}],
+      shim: {
+    'bower/react/react-dom': {
+      exports: 'ReactDOM'
+    },
+    'bower/react-router/build/umd/ReactRouter': {
+      deps: ['react'],
+      exports: 'ReactRouter'
+    },
+    'bower/react-tray/dist/react-tray': {
+      deps: ['react']
+    },
+    'bower/react-modal/dist/react-modal': {
+      deps: ['react']
+    },
+    'bower/react-tokeninput/dist/react-tokeninput': {
+      deps: ['react'],
+    },
+    'bower/react-select-box/dist/react-select-box': {
+      deps: ['react'],
+    },
+    'bower/ember/ember': {
+      deps: ['jquery', 'handlebars'],
+      exports: 'Ember'
+    },
+    'bower/ember-data/ember-data': {
+      deps: ['ember'],
+      exports: 'DS'
+    },
+    'bower/handlebars/handlebars.runtime': {
+      exports: 'Handlebars'
+    },
+    'bower/reflux/dist/reflux.js': {
+      deps: ['react'],
+      exports: 'Reflux'
+    },
+    'vendor/FileAPI/FileAPI.min': {
+      deps: ['jquery', 'vendor/FileAPI/config'],
+      exports: 'FileAPI'
+    },
+    'fixed-data-table': {
+      deps: ['object_assign', 'react'],
+      exports: 'fixed-data-table'
+    },
+    'vendor/bootstrap-select/bootstrap-select' : {
+      deps: ['jquery'],
+      exports: '$'
+    },
+    'vendor/jquery.jcrop': {
+      deps: ['jquery'],
+      exports: '$'
+    },
+    'vendor/jquery.smartbanner': {
+      deps: ['jquery'],
+      exports: '$'
+    },
+    'vendor/md5': {
+      exports: 'CryptoJS'
+    },
+    'handlebars': {
+      deps: ['bower/handlebars/handlebars.runtime.amd'],
+      exports: 'Handlebars'
+    },
+    'vendor/i18n': {
+      exports: 'I18n'
+    },
+    'vendor/react-infinite-scroll.min' : {
+      deps: ['react'],
+      exports: 'InfiniteScroll'
+    },
+    'bower/tinymce/tinymce' : {
+      exports: 'tinymce'
+    },
+    'bower/axios/dist/axios' : {
+      exports: 'axios'
+    },
+    'bower/tinymce/themes/modern/theme' : {
+      deps: ['bower/tinymce/tinymce'],
+      exports: 'tinymce'
+    }
+  }
+,
+      map: {"canvas_quizzes":{"lodash":"underscore","d3":"vendor\/d3.v3","backbone":"vendor\/backbone","jquery\/instructure_date_and_time":"jquery.instructure_date_and_time","react":"old_unsupported_dont_use_react","react-router":"old_unsupported_dont_use_react-router"},"*":{"React":"react"}},
+      waitSeconds: 60
+    };
+</script>
+
+  <script src="/javascripts/vendor/require.js"></script>
+
+<script src="/javascripts/compiled/bundles/common.js"></script>
+<script src="/javascripts/compiled/bundles/legacy/error_form.js"></script>
+
+
+
+
+  <script>
+  // Determines if the scripts are loaded.
+  // When we get everything out of the views, and have a single top-level
+  // `require`, this becomes meaningless and will be abandoned.
+  (function() {
+    var attempts = 0;
+    var timeout = 10;
+    var check = function() {
+      attempts++;
+      var done = !window.requirejs.s.contexts._.defQueue.length
+      var giveup = attempts === 100; // 1 second
+      if (done || giveup) {
+        var className = document.documentElement.className;
+        document.documentElement.className = className.replace(/scripts-not-loaded/, '');
+        return;
+      }
+      setTimeout(check, timeout);
+    };
+
+    check();
+  }).call(this);
+  </script>
+
+
+</div> <!-- #application -->
+</body>
+</html>

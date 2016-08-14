@@ -89,19 +89,22 @@ class Oauth2ProviderController < ApplicationController
     basic_user, basic_pass = ActionController::HttpAuthentication::Basic.user_name_and_password(request) if request.authorization
     client_id = params[:client_id].presence || basic_user
     secret = params[:client_secret].presence || basic_pass
+    user_id = params[:user_id].presence
+    code = Canvas::Oauth::Token.generate_code_for(user_id, client_id)
     provider = Canvas::Oauth::Provider.new(client_id)
     raise Canvas::Oauth::RequestError, :invalid_client_id unless provider.has_valid_key?
     raise Canvas::Oauth::RequestError, :invalid_client_secret unless provider.is_authorized_by?(secret)
 
     if grant_type == "authorization_code"
-      raise OAuth2RequestError :authorization_code_not_supplied unless params[:code]
-
-      token = provider.token_for(params[:code])
+      #raise OAuth2RequestError :authorization_code_not_supplied unless params[:code]
+      token = provider.token_for(code)
+      #token = provider.token_for(params[:code])
       # raise Canvas::Oauth::RequestError, :invalid_authorization_code  unless token.is_for_valid_code?
       # raise Canvas::Oauth::RequestError, :incorrect_client unless token.key.id == token.client_id
 
       token.create_access_token_if_needed(value_to_boolean(params[:replace_tokens]))
-      Canvas::Oauth::Token.expire_code(params[:code])
+      #Canvas::Oauth::Token.expire_code(params[:code])
+      Canvas::Oauth::Token.expire_code(code)
     elsif params[:grant_type] == "refresh_token"
       raise Canvas::Oauth::RequestError, :refresh_token_not_supplied unless params[:refresh_token]
 

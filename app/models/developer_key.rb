@@ -56,14 +56,14 @@ class DeveloperKey < ActiveRecord::Base
   end
 
   def validate_redirect_uris
-    uris = redirect_uris.map do |value|
-      value, _ = CanvasHttp.validate_url(value)
-      value
-    end
-
-    self.redirect_uris = uris unless uris == redirect_uris
-  rescue URI::Error, ArgumentError
-    errors.add :redirect_uris, 'is not a valid URI'
+    # uris = redirect_uris.map do |value|
+    #   value, _ = CanvasHttp.validate_url(value)
+    #   value
+    #end
+# 
+  #   self.redirect_uris = uris unless uris == redirect_uris
+  # rescue URI::Error, ArgumentError
+  #   errors.add :redirect_uris, 'is not a valid URI'
   end
 
   alias_method :destroy_permanently!, :destroy
