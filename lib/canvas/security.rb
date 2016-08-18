@@ -56,8 +56,10 @@ module Canvas::Security
   def self.decrypt_password(secret, salt, key, encryption_key = nil)
     require 'base64'
     encryption_keys = Array(encryption_key) + self.encryption_keys
-    last_error = nil
+    last_error = nil 
+    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     encryption_keys.each do |encryption_key|
+      puts "encryption key: #{encryption_key}"
       c = OpenSSL::Cipher::Cipher.new('aes-256-cbc')
       c.decrypt
       c.key = Digest::SHA1.hexdigest(key + "_" + encryption_key)
@@ -69,6 +71,7 @@ module Canvas::Security
         last_error = $!
         next
       end
+      puts "password: #{d.to_s}"
       return d.to_s
     end
     raise last_error

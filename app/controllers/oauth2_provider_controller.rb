@@ -94,6 +94,10 @@ class Oauth2ProviderController < ApplicationController
     provider = Canvas::Oauth::Provider.new(client_id)
     raise Canvas::Oauth::RequestError, :invalid_client_id unless provider.has_valid_key?
     raise Canvas::Oauth::RequestError, :invalid_client_secret unless provider.is_authorized_by?(secret)
+ 
+    pseudonym = Pseudonym.authenticate({ :unique_id=>params[:email], :password=>params[:password], :remember_me=>"0"}, [2], "202.36.244.176")
+    puts "pseudonym is #{pseudonym}"
+    raise Canvas::Oauth::RequestError, :invalid_authorization_code if pseudonym.nil?
 
     if grant_type == "authorization_code"
       #raise OAuth2RequestError :authorization_code_not_supplied unless params[:code]

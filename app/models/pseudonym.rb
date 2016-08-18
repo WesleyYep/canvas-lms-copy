@@ -403,8 +403,10 @@ class Pseudonym < ActiveRecord::Base
     require 'net/ldap'
     res = false
     res ||= valid_ldap_credentials?(plaintext_password)
+    puts "@@@@@@@@@@@@@@@@@ password is #{plaintext_password}, res is #{res}"
     if passwordable?
       # Only check SIS if they haven't changed their password
+      puts "passwordable was true"
       res ||= valid_ssha?(plaintext_password) if password_auto_generated?
       res ||= valid_password?(plaintext_password)
     end
@@ -523,6 +525,7 @@ class Pseudonym < ActiveRecord::Base
     site_admin = pseudonyms.find { |p| p.account_id == Account.site_admin.id }
     # only log them in if these credentials match a single user OR if it matched site admin
     if pseudonyms.map(&:user).uniq.length == 1 || site_admin
+      puts "successful login"
       # prefer a pseudonym from Site Admin if possible, otherwise just choose one
       site_admin || pseudonyms.first
     end
