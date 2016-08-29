@@ -70,7 +70,7 @@ module SIS
         raise ImportError, "No login_id given for user #{user_id}" if login_id.blank?
         raise ImportError, "Improper status for user #{user_id}" unless status =~ /\A(active|deleted)/i
 
-        @batched_users << [user_id.to_s, login_id, status, first_name, last_name, email, password, ssha_password, integration_id, short_name, full_name, sortable_name, authentication_provider_id]
+        @batched_users << [user_id.to_s, login_id, status, first_name, last_name, email, password, ssha_password, integration_id, short_name, full_name, sortable_name, authentication_provider_id,position,organisation,city]
         process_batch if @batched_users.size >= @updates_every
       end
 
