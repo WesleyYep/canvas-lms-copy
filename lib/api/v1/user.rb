@@ -101,7 +101,9 @@ module Api::V1::User
         json[:group_ids] = context_group_ids & user_group_ids
       end
 
-      json[:locale] = user.locale if includes.include?('locale')
+      json[:city] = user["locale"]
+      json[:position] = user.school_position
+      json[:organisation] = user.school_name
       json[:confirmation_url] = user.communication_channels.email.first.try(:confirmation_url) if includes.include?('confirmation_url')
 
       if includes.include?('last_login')

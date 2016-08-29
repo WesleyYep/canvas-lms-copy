@@ -1471,12 +1471,12 @@ class UsersController < ApplicationController
 
     update_email = @user.grants_right?(@current_user, :manage_user_details) && params[:user][:email]
     managed_attributes = []
-    managed_attributes.concat [:name, :short_name, :sortable_name, :birthdate] if @user.grants_right?(@current_user, :rename)
+    managed_attributes.concat [:name, :short_name, :sortable_name, :birthdate, :locale, :school_name, :school_position] if @user.grants_right?(@current_user, :rename)
     managed_attributes << :terms_of_use if @user == (@real_current_user || @current_user)
     managed_attributes << :email if update_email
 
     if @user.grants_right?(@current_user, :manage_user_details)
-      managed_attributes.concat([:time_zone, :locale])
+      managed_attributes.concat([:time_zone])
     end
 
     if @user.grants_right?(@current_user, :update_avatar)
@@ -1525,6 +1525,12 @@ class UsersController < ApplicationController
           @user.avatar_state = (old_avatar_state == :locked ? old_avatar_state : 'approved') if admin_avatar_update
           @user.email = user_params[:email] if update_email
           @user.save if admin_avatar_update || update_email
+
+          @user.school_name = user_params[:school_name] if !user_params[:school_name].blank?
+          @user.school_position = user_params[:school_position] if !user_params[:school_position].blank?
+          @user.locale = user_params[:locale] if !user_params[:locale].blank?
+          @user.save
+          
           session.delete(:require_terms)
           flash[:notice] = t('user_updated', 'User was successfully updated.')
           unless params[:redirect_to_previous].blank?

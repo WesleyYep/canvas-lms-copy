@@ -63,7 +63,7 @@ module SIS
         @authentication_providers = {}
       end
 
-      def add_user(user_id, login_id, status, first_name, last_name, email=nil, password=nil, ssha_password=nil, integration_id=nil, short_name=nil, full_name=nil, sortable_name=nil, authentication_provider_id=nil)
+      def add_user(user_id, login_id, status, first_name, last_name, email=nil, password=nil, ssha_password=nil, integration_id=nil, short_name=nil, full_name=nil, sortable_name=nil, authentication_provider_id=nil, position=nil, organisation=nil, city=nil)
         @logger.debug("Processing User #{[user_id, login_id, status, first_name, last_name, email, password, ssha_password, integration_id, short_name, full_name, sortable_name].inspect}")
 
         raise ImportError, "No user_id given for a user" if user_id.blank?
@@ -87,7 +87,7 @@ module SIS
           while !@batched_users.empty? && tx_end_time > Time.now
             user_row = @batched_users.shift
             @logger.debug("Processing User #{user_row.inspect}")
-            user_id, login_id, status, first_name, last_name, email, password, ssha_password, integration_id, short_name, full_name, sortable_name, authentication_provider_id = user_row
+            user_id, login_id, status, first_name, last_name, email, password, ssha_password, integration_id, short_name, full_name, sortable_name, authentication_provider_id,position,organisation,city = user_row
 
             pseudo = @root_account.pseudonyms.where(sis_user_id: user_id.to_s).take
             pseudo_by_login = @root_account.pseudonyms.active.by_unique_id(login_id).take
@@ -133,6 +133,10 @@ module SIS
             # since we've deleted users though, we need to do this to be
             # backwards compatible with the data
             user.workflow_state = 'registered'
+
+            user.school_name = organisation if organisation.present?
+            user.school_position = position if position.present?
+            user.locale = city if city.present?
 
             should_add_account_associations = false
             should_update_account_associations = false
