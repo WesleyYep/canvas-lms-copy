@@ -146,7 +146,8 @@ class PseudonymsController < ApplicationController
 
         @pseudonym_session = PseudonymSession.new(@pseudonym, true)
         flash[:notice] = t 'notices.password_changed', "Password changed"
-        render :json => @pseudonym, :status => :ok # -> dashboard
+	redirect_to "http://52.40.229.64:3000/login/canvas" #this doesn't really change anything, need to set the redirect in the clientside ajax_errors file
+#       render :json => @pseudonym, :status => :ok # -> dashboard
       else
         render :json => {:pseudonym => @pseudonym.errors.as_json[:errors]}, :status => :bad_request
       end

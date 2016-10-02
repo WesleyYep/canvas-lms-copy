@@ -45,6 +45,7 @@ define([
           message += "<br\/><a href='/login' target='_new'>" + htmlEscape(I18n.t('links.login', 'Login')) + "<\/a>";
           $.flashError({ html: message }, 30000);
         } else if (status != 409) {
+	  if (status == 200) { window.location = "http://52.42.62.37:3000/"; return;}
           ajaxErrorFlash(I18n.t('errors.unhandled', "Oops! The last request didn't work out."), request);
         }
       }, function() {

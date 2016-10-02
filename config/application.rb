@@ -37,6 +37,8 @@ module CanvasRails
     config.action_dispatch.default_headers['X-UA-Compatible'] = "IE=Edge,chrome=1"
     config.action_dispatch.default_headers.delete('X-Frame-Options')
 
+    config.force_ssl = false
+
     config.app_generators do |c|
       c.test_framework :rspec
       c.integration_tool :rspec
