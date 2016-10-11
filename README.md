@@ -14,7 +14,9 @@ This is a modified version of Canvas LMS for use as the back-end of Assurity Edu
 - Edit `config/domain.yml` file (this gets created in the Quickstart instructions) to contain the correct ip address
 - `public/javascripts/ajax_errors.js` file is hard-coded to redirect to our current live front-end. This should be changed to the address of the Assurity hosted Canvas Front-end
 - If using Quickstart, you'll also need to start the [delayed job](https://github.com/WesleyYep/Pre-Post-Course-System/wiki/How-to-run-background-worker-on-Canvas-backend-server) and don't forget about [data setup](https://github.com/instructure/canvas-lms/wiki/Quick-Start#data-setup)
-- Copy the address of the live site into the [constants.js](https://github.com/WesleyYep/Pre-Post-Course-System/blob/master/pre-post-course-system/imports/lib/constants.js) file on the react application. If not using SSL, just copy the same address to both address fields (and port)
+- Copy the address of the Canvas site into the [constants.js](https://github.com/WesleyYep/Pre-Post-Course-System/blob/master/pre-post-course-system/imports/lib/constants.js) file on the react application. If not using SSL, just copy the same address to both address fields (and port)
+- Go to the address of the Canvas site in a browser. You should see the Canvas default login page. Login with the admin account details that it would have prompted to create during the install. Hover cursor over "Courses" and choose the default account that you created (not site admin).
+- Go to "Settings" on the left side menu. Ensure "SIS Import", "Enable Profiles", "Users can edit name" and "User avatars" are checked.
 
 ### Recommended
 - Set username and password of postgres database (the connection strings in `imports/api/actions` files of the front-end application may need to change to take the username and password into account)
